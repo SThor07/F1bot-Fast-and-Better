@@ -1,40 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# 🏎️ F1GPT - Formula One RAG Chatbot
 
-## Getting Started
+Your personal race engineer—powered by Retrieval-Augmented Generation (RAG), OpenAI, and Datastax Astra DB.  
+Ask anything about Formula One and get intelligent, up-to-date responses.
 
-First, run the development server:
+<img src="final-ss.png" alt="F1GPT Screenshot" width="700"/>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+##  What is This?
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+This project is a **Retrieval-Augmented Generation chatbot** for Formula One.  
+It combines:
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- **Vector Embeddings**: Transform user queries into dense vectors.
+- **Astra DB (Datastax)**: Store and retrieve relevant documents with vector similarity search.
+- **OpenAI GPT-4**: Generate high-quality answers using retrieved context.
+- **Next.js + `ai/react`**: Real-time streaming frontend chat.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+##  How It Works
 
-## Learn More
+1. **User asks a question.**
+2. The question is embedded via the OpenAI Embeddings API.
+3. The embedding queries Astra DB to find the most relevant documents.
+4. The documents are injected into the system prompt.
+5. GPT-4 streams a response chunk by chunk.
+6. The frontend displays the answer live as it arrives.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+## 🛠️ Prerequisites
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Before running this project, you’ll need:
 
-## Deploy on Vercel
+- **Node.js ≥ v18**
+- An **OpenAI API key**
+- A **Datastax Astra DB instance and application token**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+##  Installation & Setup
+
+Follow these steps:
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/f1gpt.git
+   cd f1gpt
+2. **Install dependencies**
+   npm install
+
+## Project Structure
+/app
+  /api/chat/route.ts            // RAG API route
+  /components                   // UI components (Bubble, PromptSuggestionsRow, etc.)
+  /page.tsx                     // Chat interface
+/global.css                     // Styling
+/scripts/loadDb.ts              // DB seeding script
+
+## Technologies Used
+
+1.Next.js 14 App Router
+2.React 18
+3.OpenAI GPT-4 + Embeddings
+4.Datastax Astra DB Vector Store
+5.Vercel AI SDK (ai/react)
+
+## Acknowledgments
+
+Special thanks to:
+OpenAI for GPT-4 and Embeddings
+Datastax Astra DB for vector storage
+Formula One data sources
+Community tutorials and learning resources on RAG
