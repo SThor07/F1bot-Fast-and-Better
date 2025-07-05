@@ -51,6 +51,8 @@ Follow these steps:
 2. **Install dependencies**
    npm install
 
+---
+
 ## Project Structure
 /app
   /api/chat/route.ts            // RAG API route
@@ -58,6 +60,8 @@ Follow these steps:
   /page.tsx                     // Chat interface
 /global.css                     // Styling
 /scripts/loadDb.ts              // DB seeding script
+
+---
 
 ## Technologies Used
 
@@ -67,6 +71,8 @@ Follow these steps:
 4.Datastax Astra DB Vector Store
 5.Vercel AI SDK (ai/react)
 
+---
+
 ## Acknowledgments
 
 Special thanks to:
@@ -74,3 +80,7 @@ OpenAI for GPT-4 and Embeddings
 Datastax Astra DB for vector storage
 Formula One data sources
 Community tutorials and learning resources on RAG
+
+---
+
+Lights out and Away we Go!
